@@ -1,6 +1,7 @@
 package com.yi.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yi.domain.ProjectContentVO;
 import com.yi.domain.ProjectVO;
@@ -46,5 +48,26 @@ public class ProjectController {
 		List<ProjectVO> list = service.projectList();
 		
 		model.addAttribute("list", list);
+	}
+	
+	//프로젝트 상세보기
+	@RequestMapping(value = "read", method = RequestMethod.GET)
+	public void read(@RequestParam("project_no") int project_no, Model model) {
+		logger.info("=======> read : GET");
+		
+		Map<String, Object> map = service.readProject(project_no);
+		model.addAttribute("map", map);
+	}
+	
+	//수정하기
+	@RequestMapping(value = "modify", method = RequestMethod.GET)
+	public void modify(@RequestParam("project_no") int project_no, Model model) {
+		logger.info("=======> modify : GET");
+		
+		Map<String, Object> map = service.readProject(project_no);
+		logger.info("====> map : " + map);
+		
+		model.addAttribute("map", map);
+	
 	}
 }
