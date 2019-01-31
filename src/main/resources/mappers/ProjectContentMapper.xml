@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yi.mapper.ProjectContentMapper">
+	<!-- resultType에 바로 클래스 이름 사용하기 위해서는 mabatis-config.xml에서 typeAlias 설정 필요함. -->
+	<insert id="insert" parameterType="ProjectContentVO">
+		insert into project_content(project_no, content) values (#{project_no}, #{content})
+	</insert>
+	
+	<select id="selectByNo" resultType="ProjectContentVO">
+		select * from project_content where project_no = #{project_no}
+	</select>
+	
+	<update id="modify" parameterType="ProjectContentVO">
+		update project_content set content = #{content} where project_no = #{project_no}
+	</update>
+	
+	<delete id="delete">
+		delete from project_content where project_no = #{project_no}
+	</delete>
+</mapper>
