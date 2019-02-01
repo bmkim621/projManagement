@@ -1,5 +1,3 @@
-<%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -18,9 +16,9 @@
 <body>
 
 	<div class="container">
-			<h4>MODIFY PROJECT <fmt:formatDate value="${map.project.end_date }" pattern="yyyy-MM-dd"/></h4>
+			<h4>MODIFY PROJECT <fmt:formatDate value="${map.project.start_date }" pattern="yyyy-MM-dd"/>&nbsp;<fmt:formatDate value="${map.project.end_date }" pattern="yyyy-MM-dd"/></h4>
 			
-			<form class="form-horizontal" action="register" method="post" role="form">
+			<form class="form-horizontal" action="modify?project_no=${map.project.project_no }" method="post" role="form">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="project_name">프로젝트 이름</label>
 					<div class="col-sm-6">
@@ -38,14 +36,14 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="start_date">시작날짜</label>
 					<div class="col-xs-2">
-						<input type="text" class="form-control" id="start_date" name="start_date" readonly="readonly" value="${map.project.start_date }">
+						<input type="text" class="form-control" id="start_date" name="start_date" readonly="readonly" value="<fmt:formatDate value='${map.project.start_date }' pattern='yyyy-MM-dd'/>">
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="end_date">마감날짜</label>
 					<div class="col-xs-2">
-						<input type="text" class="form-control" id="end_date" name="end_date" readonly="readonly" value="${map.project.end_date }">
+						<input type="text" class="form-control" id="end_date" name="end_date" readonly="readonly" value="<fmt:formatDate value='${map.project.end_date }' pattern='yyyy-MM-dd'/>">
 					</div>
 				</div>
 				
@@ -82,13 +80,14 @@
 			maxDate : "+2M"
 		});
 		$("#start_date").datepicker("option", "dateFormat", "yy-mm-dd");
-		
+		$("#start_date").val('<fmt:formatDate value="${map.project.start_date }" pattern="yyyy-MM-dd"/>');
 		
 		$("#end_date").datepicker({
 			minDate : 1,
 			maxDate : "+2M 15D"
 		})
 		$("#end_date").datepicker("option", "dateFormat", "yy-mm-dd");
+		$("#end_date").val('<fmt:formatDate value="${map.project.end_date }" pattern="yyyy-MM-dd"/>');
 		
 	})
 </script>
