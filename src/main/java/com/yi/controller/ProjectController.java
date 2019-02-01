@@ -70,4 +70,14 @@ public class ProjectController {
 		model.addAttribute("map", map);
 	
 	}
+	
+	@RequestMapping(value = "modify", method = RequestMethod.POST)
+	public String modify(@RequestParam("project_no") int project_no, Model model, ProjectVO projectVO, ProjectContentVO contentVO) {
+		logger.info("=======> modify : POST");
+		logger.info("=======> project_no = " + project_no);
+		
+		service.modifyProject(projectVO, contentVO);
+		
+		return "redirect:/project/read?project_no=" + projectVO.getProject_no();
+	}
 }
