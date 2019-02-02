@@ -1,19 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div class="container">    
-		<button type="button" class="btn btn-danger btn-sm" id="btnRegist">새 프로젝트 등록</button>
+<%@ include file="../include/header.jsp" %>
+<section>
+	<div class="listWrap">
+  	<div class="alert alert-warning">
+  		<strong>PROJECT LIST:</strong>&nbsp;&nbsp;저장되어 있는 프로젝트 리스트를 볼 수 있습니다.
+	</div>
+	<p id="btnRegistWrap"><button type="button" class="btn btn-danger btn-sm" id="btnRegist">새 프로젝트 등록</button></p>
+		
 		<table class="table table-hover table-bordered">
 			<thead>
 			<tr class="active">
@@ -36,6 +31,7 @@
 		</table>
 	</div>
 
+</section>
 <script>
 	$(function(){
 		$("#btnRegist").click(function(){
@@ -43,5 +39,5 @@
 		})
 	})
 </script>
-</body>
-</html>
+
+<%@ include file="../include/footer.jsp" %>
