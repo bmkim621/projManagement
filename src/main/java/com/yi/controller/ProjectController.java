@@ -80,4 +80,19 @@ public class ProjectController {
 		
 		return "redirect:/project/read?project_no=" + projectVO.getProject_no();
 	}
+	
+	//삭제하기
+	@RequestMapping(value = "remove", method = RequestMethod.POST)
+	public String remove(@RequestParam("project_no") int project_no) {
+		logger.info("=======> remove : POST");
+		logger.info("=======> project_no = " + project_no);
+		
+		int isDel = service.deleteProject(project_no);
+		logger.info("=======> isDel = " + isDel);
+		if(isDel < 0) {
+			logger.info("삭제 실패");
+		}
+		
+		return "redirect:/project/list";
+	}
 }
