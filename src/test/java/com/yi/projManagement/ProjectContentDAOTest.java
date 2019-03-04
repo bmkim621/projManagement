@@ -17,7 +17,7 @@ public class ProjectContentDAOTest {
 	private ProjectContentDAO dao;
 	
 	//등록
-	//@Test
+	@Test
 	public void testInsert() {
 		ProjectContentVO vo = new ProjectContentVO();
 		vo.setContent("프로젝트 관리 시스템 내용222");
@@ -26,7 +26,7 @@ public class ProjectContentDAOTest {
 		dao.insert(vo);
 	}
 	
-	//@Test
+	@Test
 	public void testModify() {
 		ProjectContentVO vo = new ProjectContentVO();
 		vo.setContent("프로젝트 관리 시스템 내용 수정하기");
@@ -35,16 +35,14 @@ public class ProjectContentDAOTest {
 		dao.modify(vo);
 	}
 	
-	//@Test
+	@Test
 	public void testSelectByNo() {
 		ProjectContentVO vo = dao.selectByNo(2);
 		System.out.println(vo);
 	}
 	
-	//@Test
+	@Test
 	public void testDelete() {
 		dao.delete(2);
 	}
-
-
 }

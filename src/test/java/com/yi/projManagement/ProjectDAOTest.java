@@ -34,21 +34,21 @@ public class ProjectDAOTest {
 	}
 	
 	//리스트
-	//@Test
+	@Test
 	public void testListAll() {
 		List<ProjectVO> list = dao.listAll();
 		System.out.println(list);
 	}
 	
 	//읽기
-	//@Test
+	@Test
 	public void testSelectByNo() {
 		ProjectVO vo = dao.selectByNo(2);
 		System.out.println(vo);
 	}
 	
 	//수정
-	//@Test
+	@Test
 	public void testModify() {
 		ProjectVO vo = new ProjectVO();
 		vo.setProject_name("프로젝트 수정하기");
@@ -61,7 +61,7 @@ public class ProjectDAOTest {
 	}
 	
 	//삭제
-	//@Test
+	@Test
 	public void testDelete() {
 		dao.delete(3);
 	}
